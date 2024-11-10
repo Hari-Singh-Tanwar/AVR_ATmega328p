@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 77.4, "left": -10.2, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -49.3, "left": 278.2, "attrs": {} },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -82.4,
+      "left": 173.9,
+      "attrs": { "common": "cathode" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -49.3, "left": 355, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot3", "top": -49.3, "left": 431.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -13.2,
+      "left": 138.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -61.2,
+      "left": 138.2,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -109.2,
+      "left": 138.2,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "pot1:VCC", "red", [ "v38.3", "h23" ] ],
+    [ "uno:GND.2", "pot1:GND", "black", [ "v28.7", "h147.9" ] ],
+    [ "uno:GND.1", "rgb1:COM", "black", [ "v-48", "h9.9" ] ],
+    [ "pot1:VCC", "pot2:VCC", "red", [ "v38.4", "h-0.8" ] ],
+    [ "pot2:VCC", "pot3:VCC", "red", [ "v38.4", "h85.6" ] ],
+    [ "pot2:GND", "pot1:GND", "black", [ "v48", "h-76.8" ] ],
+    [ "pot3:GND", "pot2:GND", "black", [ "v48", "h-76.8" ] ],
+    [ "pot2:SIG", "uno:A1", "green", [ "v297.6", "h-182.8" ] ],
+    [ "pot3:SIG", "uno:A2", "blue", [ "v307.2", "h-250" ] ],
+    [ "uno:3", "rgb1:B", "blue", [ "v-105.6", "h-7.2" ] ],
+    [ "uno:5", "rgb1:G", "green", [ "v-19.2", "h3.8" ] ],
+    [ "uno:6", "rgb1:R", "red", [ "v-19.2", "h-15.5" ] ],
+    [ "uno:A3", "pot1:SIG", "red", [ "v19.1", "h90.5" ] ],
+    [ "uno:3", "led3:A", "blue", [ "v0" ] ],
+    [ "uno:5", "led2:A", "green", [ "v0" ] ],
+    [ "uno:6", "led1:A", "red", [ "v0" ] ],
+    [ "uno:GND.1", "led1:C", "black", [ "v-48", "h48.3" ] ],
+    [ "led2:C", "led1:C", "black", [ "v0" ] ],
+    [ "led3:C", "led2:C", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
